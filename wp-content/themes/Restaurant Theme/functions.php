@@ -62,3 +62,21 @@ function my_sidebars() {
     );
 }
 add_action('widgets_init','my_sidebars');
+
+function my_first_post_type() {
+    $args = array(
+        'labels' => array(
+            'name' => 'Cars',
+            'singular_name' => 'Car'
+        ),
+        'menu_icon' => 'dashicons-car',
+        'hierarchical' => true,
+        'public' => true,
+        'has_archive' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        //'rewrite' => array('slug' => 'my-cars')
+
+    );
+    register_post_type('cars', $args);
+}
+add_action('init', 'my_first_post_type');
