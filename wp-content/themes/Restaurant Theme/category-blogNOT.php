@@ -1,4 +1,4 @@
-<?php get_header()?>
+<!-- <?php get_header()?>
 <section class="page-wrap">
 <div class="container">
      
@@ -10,4 +10,4 @@
      
 </div>
 </section>
-<?php get_footer()?>
+<?php get_footer()?> -->
