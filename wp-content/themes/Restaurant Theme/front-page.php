@@ -3,11 +3,12 @@
 <section class="page-wrap">
 
     <div class="container">
-        <div class="row">
+        <!-- <div class="row"> -->
 
             <h1><?php the_title();?></h1>
             <?php get_template_part('includes/section', 'content');?>
-        </div>
+            <?php get_search_form();?>
+        <!-- </div> -->
     </div>
 </section>
 
