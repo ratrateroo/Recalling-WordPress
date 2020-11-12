@@ -1,3 +1,4 @@
+<div id="success_message" class="alert alert-success" style="display:none;"></div>
 <form id="form-inquiry">
 
     <h5>Send and inquiry about <?php the_title();?></h5>
@@ -52,6 +53,8 @@
             contentType: false,
             success: (res) => {
                 console.log(res);
+                $('#form-inquiry').fadeOut(200);
+                $('#success_message').text('Thanks for your message.').show();
             },
             error: (err) => {
                 console.log(err);
