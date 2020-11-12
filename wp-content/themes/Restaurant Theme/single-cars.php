@@ -21,10 +21,15 @@
             <div class="col-lg-6">
 
                 <ul>
-                    <li>Color: <?php echo get_post_meta($post->ID,'Color', true);?></li>
-                    <?php if( get_post_meta($post->ID,'Registration', true)) : ?>
-                    <li>Registration: <?php echo get_post_meta($post->ID,'Registration', true);?></li>
-                    <?php endif; ?>
+                    <li>Color:<?php the_field('color');?>
+                        <?php //echo get_post_meta($post->ID,'Color', true);?>
+                    </li>
+                    <?php //if( get_post_meta($post->ID,'Registration', true)) : ?>
+                    <li>Registration: <?php the_field('registration');?>
+                        <?php //echo get_post_meta($post->ID,'Registration', true);
+                                            
+                    ?></li>
+                    <?php //endif; ?>
                 </ul>
             </div>
         </div>
