@@ -1,6 +1,10 @@
 <form id="form-inquiry">
 
     <h5>Send and inquiry about <?php the_title();?></h5>
+
+    <input type="hidden" name="registration" value="<?php the_field('registration');?>">
+
+
     <div class="form-group row">
         <div class="col-lg-6">
             <input type="text" name="fname" placeholder="First Name" required class="form-control" value="First Name">

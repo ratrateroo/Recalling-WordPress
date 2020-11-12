@@ -99,3 +99,47 @@ function my_first_taxonomy() {
 }
 add_action('init', 'my_first_taxonomy');
 
+
+
+add_action('wp_ajax_inquiry', 'inquiry_form');
+add_action('wp_ajax_nopriv_inquiry', 'inquiry_form');
+
+
+function inquiry_form() {
+
+    $formdata = [];
+    wp_parse_str($_POST['inquiry'], $formdata);
+
+    //Getting the admin email
+    $admin_email = get_option('admin_email');
+
+    //Email headers
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    $headers[] ='From: Website ' . $admin_email;
+    $headers[] = 'Reply-to:' . $formdata['email'];
+
+    //Who will receive the email
+    $send_to = $admin_email;
+
+    //Subject
+    $subject = "Inquiry from " . $formdata['fname'] . ' ' . $formdata['lname'];
+
+    //Message
+    $message = '';
+
+    foreach($formdata as $index => $field) {
+        $message .= '<strong>' . $index . '</strong>: '. $field . '<br />';
+    }
+    //wp_send_json_success($formdata);
+    try {
+        if ( wp_mail($send_to, $subject, $message, $headers) ) {
+
+            wp_send_json_success('Email sent!');
+        } else {
+            wp_send_json_error('Email error!');
+        }
+    } catch ( Exception $e) {
+        wp_send_json_error( $e->getMessage() );
+    }
+    
+};
