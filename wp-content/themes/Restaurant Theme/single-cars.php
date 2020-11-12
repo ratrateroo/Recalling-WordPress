@@ -20,6 +20,8 @@
             </div>
             <div class="col-lg-6">
 
+                <?php get_template_part('includes/form', 'inquiry'); ?>
+
                 <ul>
                     <li>Color:<?php the_field('color');?>
                         <?php //echo get_post_meta($post->ID,'Color', true);?>
