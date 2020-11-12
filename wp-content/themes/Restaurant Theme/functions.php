@@ -63,6 +63,8 @@ function my_sidebars() {
 }
 add_action('widgets_init','my_sidebars');
 
+
+//Creating post type
 function my_first_post_type() {
     $args = array(
         'labels' => array(
@@ -73,7 +75,7 @@ function my_first_post_type() {
         'hierarchical' => true,
         'public' => true,
         'has_archive' => true,
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail','custom-fields'),
         //'rewrite' => array('slug' => 'my-cars')
 
     );
@@ -81,7 +83,7 @@ function my_first_post_type() {
 }
 add_action('init', 'my_first_post_type');
 
-
+//Creating taxonomy
 function my_first_taxonomy() {
     $args = array(
         'labels' => array(
@@ -96,3 +98,4 @@ function my_first_taxonomy() {
     register_taxonomy('brands', array('cars'), $args);
 }
 add_action('init', 'my_first_taxonomy');
+
