@@ -171,8 +171,8 @@ function custom_mailer() {
     $phpmailer->Port = 587;
     $phpmailer->SMTPAuth = true;
     $phpmailer->SMTPSecure = 'tls';
-    $phpmailer->Username = 'username';
-    $phpmailer->Password = 'password';
+    $phpmailer->Username = SMTP_LOGIN;
+    $phpmailer->Password = SMTP_PASSWORD;
     $phpmailer->IsSMTP();
 
 }
