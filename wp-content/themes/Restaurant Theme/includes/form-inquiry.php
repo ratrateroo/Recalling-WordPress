@@ -57,7 +57,6 @@
                 $('#success_message').text('Thanks for your message.').show();
                 $('#form-inquiry').trigger('reset');
                 $('#form-inquiry').fadeIn(500);
-
             },
             error: (err) => {
                 console.log(err);
