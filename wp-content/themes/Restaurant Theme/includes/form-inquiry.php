@@ -45,6 +45,7 @@
         const formdata = new FormData;
 
         formdata.append('action', 'inquiry');
+        formdata.append('nonce', '<?php echo wp_create_nonce('ajax-nonce');?>');
         formdata.append('inquiry', form);
         $.ajax(endpoint, {
             type: 'POST',
