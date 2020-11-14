@@ -15,20 +15,20 @@
 <body>
 
     <header>
-        <div class="container">
+        <!-- <div class="container">
 
             <?php
-    wp_nav_menu(
-        array(
-            'theme_location' => 'top-menu',
-            //'menu' => 'Top Bar'
-            'menu_class' =>'top-bar'
-        )
-    );
+    // wp_nav_menu(
+    //     array(
+    //         'theme_location' => 'top-menu',
+    //         //'menu' => 'Top Bar'
+    //         'menu_class' =>'top-bar'
+    //     )
+    // );
     ?>
-        </div>
-    </header>
-    <nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
+        </div> -->
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -50,4 +50,7 @@
         ) );
         ?>
         </div>
+    </nav>
+    </header>
+    
     </nav>
