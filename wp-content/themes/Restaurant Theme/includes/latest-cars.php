@@ -8,6 +8,8 @@
     <?php while( $query->have_posts() ): $query->the_post(); ?>
     <div class="card">    
         <div class="card-body">
+        <img src="<?php the_post_thumbnail_url('blog-large');?>" alt="<?php the_title()?>"
+            class="img-fluid mb-3 img-thumbnail">
             <h3><?php the_title();?></h3>        
             <h3?><?php the_field('registration');?></h3>
         </div>
