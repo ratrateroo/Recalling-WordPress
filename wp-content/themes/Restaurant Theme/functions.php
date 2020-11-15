@@ -174,5 +174,9 @@ function custom_mailer() {
     $phpmailer->Username = SMTP_LOGIN;
     $phpmailer->Password = SMTP_PASSWORD;
     $phpmailer->IsSMTP();
-
 }
+
+function my_shortcode() {
+    return 'hello';
+}
+add_shortcode('latest_cars', 'my_shortcode');
