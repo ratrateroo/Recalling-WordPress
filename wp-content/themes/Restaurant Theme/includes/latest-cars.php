@@ -3,6 +3,7 @@
         'post_type' => 'cars',
         //'meta_key' => 'color',
         //'meta_value' => 'Blue',
+        'post_per_page' => 0
     ];
     $query = new WP_Query($args);
 ?>
