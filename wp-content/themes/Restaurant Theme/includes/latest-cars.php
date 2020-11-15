@@ -1,6 +1,8 @@
 <?php
     $args = [
         'post_type' => 'cars',
+        //'meta_key' => 'color',
+        //'meta_value' => 'Blue',
     ];
     $query = new WP_Query($args);
 ?>
