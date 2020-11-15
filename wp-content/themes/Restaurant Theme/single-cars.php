@@ -34,8 +34,9 @@
                     <?php //endif; ?>
                 </ul>
             </div>
-            <?php get_template_part('includes/latest', 'cars');?>
+           
         </div>
+        <?php get_template_part('includes/latest', 'cars');?>
     </div>
 </section>
 

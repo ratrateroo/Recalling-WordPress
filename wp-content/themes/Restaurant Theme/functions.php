@@ -177,6 +177,8 @@ function custom_mailer() {
 }
 
 function my_shortcode() {
-    return 'hello';
+    ob_start();
+    get_template_part('includes/latest', 'cars');
+    return ob_get_clean();
 }
 add_shortcode('latest_cars', 'my_shortcode');
