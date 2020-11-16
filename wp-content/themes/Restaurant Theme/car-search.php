@@ -48,7 +48,7 @@ $brands = get_terms([
 
                 if ( isset($_GET['keyword'])) {
                     if ( !empty($_GET['keyword'])) {
-                        $args['s'] = $_GET['keyword'];
+                        $args['s'] = sanitize_text_field($_GET['keyword']);
                     }
                 }
 
@@ -57,7 +57,7 @@ $brands = get_terms([
                         $args['tax_query'][] = [
                             'taxonomy' => 'brands',
                             'field' => 'slug',
-                            'terms' => array( $_GET['brand'])
+                            'terms' => array( sanitize_text_field($_GET['brand']))
                         ];
                     }
                 }
