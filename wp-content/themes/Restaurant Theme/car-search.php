@@ -43,6 +43,12 @@ $brands = get_terms([
                         'relation' => 'AND',
                     ]
                 ];
+
+                if ( isset($_GET['keyword'])) {
+                    if ( !empty($_GET['keyword'])) {
+                        $args['s'] = $_GET['keyword'];
+                    }
+                }
                 
                 ?>
             </div>
