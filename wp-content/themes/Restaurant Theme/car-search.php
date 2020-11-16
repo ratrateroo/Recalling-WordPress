@@ -49,8 +49,22 @@ $brands = get_terms([
                         $args['s'] = $_GET['keyword'];
                     }
                 }
-                
+
+                $query = new WP_Query($args);                
                 ?>
+                <?php if( $query->have_posts()) :?>
+                <?php while( $query->have_posts() ) : $query->the_post();?>
+                <h3><?php the_title()?></h3>
+                <img src="<?php the_post_thumbnail_url('blog-large');?>" alt="<?php the_title()?>"
+                    class="img-fluid mb-3 img-thumbnail">
+
+                <?php endwhile;?>
+                <?php else:?>
+                <div class="clearfix mb-3"></div>
+                <div class="alert alert-danger">
+                    <p>There are no results</p>
+                </div>
+                <?php endif;?>
             </div>
         </div>
 
