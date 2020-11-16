@@ -52,6 +52,16 @@ $brands = get_terms([
                     }
                 }
 
+                if ( isset($_GET['brand'])) {
+                    if ( !empty($_GET['brand'])) {
+                        $args['tax_query'][] = [
+                            'taxonomy' => 'brands',
+                            'field' => 'slug',
+                            'terms' => array( $_GET['brand'])
+                        ];
+                    }
+                }
+
                 if( $is_search ) {
                     $query = new WP_Query($args);
                 }
