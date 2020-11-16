@@ -34,6 +34,17 @@ $brands = get_terms([
                     </div>
                     <button class="btn btn-success btn btn-block">Search</button>
                 </form>
+                <?php
+                $args = [
+                    'post_type' => 'cars',
+                    'posts_per_page' => 0,
+                    'tax_query' => [],
+                    'meta_query' => [
+                        'relation' => 'AND',
+                    ]
+                ];
+                
+                ?>
             </div>
         </div>
 
