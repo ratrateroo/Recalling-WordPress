@@ -3,6 +3,8 @@
 Template Name: Car Search
 */
 
+$is_search = count( $_GET );
+
 $brands = get_terms([
     'taxonomy' => 'brands',
     'hide_empty' => false,
@@ -50,8 +52,13 @@ $brands = get_terms([
                     }
                 }
 
-                $query = new WP_Query($args);                
+                if( $is_search ) {
+                    $query = new WP_Query($args);
+                }
+
                 ?>
+
+                <?php if($is_search):?>
                 <?php if( $query->have_posts()) :?>
                 <?php while( $query->have_posts() ) : $query->the_post();?>
                 <h3><?php the_title()?></h3>
@@ -64,6 +71,7 @@ $brands = get_terms([
                 <div class="alert alert-danger">
                     <p>There are no results</p>
                 </div>
+                <?php endif;?>
                 <?php endif;?>
             </div>
         </div>
