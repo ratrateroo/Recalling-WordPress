@@ -1,4 +1,5 @@
 import webpack from 'webpack-stream';
+import named from 'vinyl-named';
 import { src, dest } from 'gulp';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
@@ -21,8 +22,11 @@ export const styles = () => {
     .pipe(dest('./css'));
 };
 
+
+
 export const scripts = () => {
-  return src('./js/src/index.js')
+  return src(['./js/src/index.js'])
+  .pipe(named())
   .pipe(webpack({
     module: {
       rules: [
@@ -31,7 +35,7 @@ export const scripts = () => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: []
+              presets: ['@babel/preset-env']
             }
           }
         }
@@ -42,6 +46,9 @@ export const scripts = () => {
     output: {
       filename: 'bootstrap.js'
     },
+    // externals: {
+    //   jquery: 'jQuery'
+    // },
   }))
   .pipe(dest('js'));
-};
+}
