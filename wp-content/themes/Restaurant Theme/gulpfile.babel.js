@@ -1,3 +1,4 @@
+import webpack from 'webpack-stream';
 import { src, dest } from 'gulp';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
@@ -18,4 +19,29 @@ export const styles = () => {
     .pipe(gulpif(PRODUCTION, cleanCss({compatibility:'ie8'})))
     .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
     .pipe(dest('./css'));
-}
+};
+
+export const scripts = () => {
+  return src('./js/src/index.js')
+  .pipe(webpack({
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: []
+            }
+          }
+        }
+      ]
+    },
+    mode: PRODUCTION ? 'production' : 'development',
+    devtool: !PRODUCTION ? 'inline-source-map' : false,
+    output: {
+      filename: 'bootstrap.js'
+    },
+  }))
+  .pipe(dest('js'));
+};
