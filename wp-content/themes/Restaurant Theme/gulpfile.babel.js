@@ -51,4 +51,4 @@ export const scripts = () => {
     // },
   }))
   .pipe(dest('js'));
-}
+};
